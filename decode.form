@@ -1,0 +1,25 @@
+import json, getpass
+user = getpass.getuser()
+key = 'Сюда вписать тот ключ, который выпал'
+file = 'Сюда вписать просто цифру файла, где есть верный ключ'
+def main():
+    while True:
+        user_key = input('Введите ключ> ')
+        if user_key == key:
+            answer = True
+        else:
+            answer = False
+        if answer == True:
+            pass
+        else:
+            print('Неверно')
+            quit()
+        user_number_file = input('Введите номер файла> ')
+        with open(f'C:\\Users\\{user}\\FileProgram\\MasterAPIKeyProgram\\{user_number_file}.json') as UserNumber:
+            Data = json.load(UserNumber)
+        info = Data.get("Main").get("KEY")
+        if info == file:
+            answer_f = True
+        else:
+            print('Неверно')
+            quit()
